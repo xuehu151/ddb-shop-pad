@@ -1,0 +1,72 @@
+<ion-view view-title="首页">
+
+    <aside class="aside">
+      <div class="head row">
+        <div class="shop">
+          <img src="{{accountHeadImg}}" alt="shop" />
+        </div>
+        <div class="text1" ng-cloak>
+          <p>{{account}}</p>
+          <p style="margin-top:.1rem;">{{whetherOpen}}</p>
+        </div>
+        <div class="">
+          <img src="./common/img/shop-v.png" alt="V" />
+        </div>
+      </div>
+      <ul class="modules">
+        <li ui-sref="modules.home.index" nav-transition='none' ion-direction='enter' ng-class="nowModule.index==0?'bg-shadow':''">
+          <i class="icon-home"></i>
+          <span>首页</span>
+          <i class="triangle fr" ng-if="nowModule.index==0"></i>
+        </li>
+        <li ui-sref="modules.orders.bigLotteOrders" nav-transition='none' ion-direction='enter' ng-class="nowModule.index==1?'bg-shadow':''">
+          <i class="icon-Calendar"></i>
+          <span>订单</span>
+          <i class="triangle fr" ng-if="nowModule.index==1"></i>
+        </li>
+        <li ui-sref="modules.wallet.index" nav-transition='none' ion-direction='enter' ng-class="nowModule.index==2?'bg-shadow':''">
+          <i class="icon-wallet"></i>
+          <span>钱包</span>
+          <i class="triangle fr" ng-if="nowModule.index==2"></i>
+        </li>
+        <li ui-sref="modules.clients" nav-transition='none' ion-direction='enter' ng-class="nowModule.index==3?'bg-shadow':''">
+          <i class="icon-client"></i>
+          <span>客户</span>
+          <i class="triangle fr" ng-if="nowModule.index==3"></i>
+        </li>
+        <li ui-sref="modules.charts.Time" nav-transition='none' ion-direction='enter' ng-class="nowModule.index==4?'bg-shadow':''">
+          <i class="icon-Pie-chart"></i>
+          <span>报表</span>
+          <i class="triangle fr" ng-if="nowModule.index==4"></i>
+        </li>
+        <li ui-sref="modules.mine.shopSets" nav-transition='none' ion-direction='enter' ng-class="nowModule.index==5?'bg-shadow':''">
+          <i class="icon-myself"></i>
+          <span>我的</span>
+          <i class="triangle fr" ng-if="nowModule.index==5"></i>
+        </li>
+      </ul>
+      <ul class="settings">
+        <li ui-sref="modules.redBag" nav-transition='none' ion-direction='enter' ng-class="nowModule.index==6?'bg-shadow':''" ng-if="rightsList.sendRed.check">
+          <span class="circle" style="background-color: #f03151 "></span>
+          <span>红包管理</span>
+          <i class="triangle fr" ng-if="nowModule.index==6"></i>
+        </li>
+        <li>
+          <span class="circle" style="background-color: #ffab00 "></span>
+          <span>语音助手</span>
+          <label class="toggle voice" >
+             <input type="checkbox" ng-checked="voiceStatus" ng-model="voiceStatus">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+          </label>
+        </li>
+        <li ng-click="goClientAssist()" ng-if="whetherOwner">
+          <span class="circle" style="background-color: #00bfdd "></span>
+          <span>权限管理</span>
+        </li>
+      </ul>
+    </aside>
+    <ion-nav-view class="modules-right"></ion-nav-view>
+
+</ion-view>

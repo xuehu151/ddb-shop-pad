@@ -1,0 +1,43 @@
+<ion-view view-title="报表">
+  <div class="index-right charts">
+    <header class="clearfix">
+      <div class="fl text">
+        订单宝
+        <small>
+              店主端
+            </small>
+      </div>
+      <inst-message></inst-message>
+    </header>
+    <div class="chart-tabs">
+      <a href="" ng-click="changeTab('Time')" ng-class="iSelectTab === 'Time' ? 'red-tab' : ''" class="tab">时段统计</a>
+      <a href="" ng-click="changeTab('History')" ng-class="iSelectTab === 'History' ? 'red-tab' : ''" class="tab">历史奖金统计</a>
+      <a href="" ng-click="changeTab('Clients')" ng-class="iSelectTab === 'Clients' ? 'red-tab' : ''" class="tab">客户统计</a>
+    </div>
+    <div class="filter-time-charts">
+      <div class="left-filter">
+        <input type="datetime-local" ng-model="search.startDate" name="beginTime" required ng-change="whetherInMonth()" /> —
+        <input type="datetime-local" ng-model="search.endDate" name="endTime" required />
+        <i class="icon-search" style="font-size: 30px;margin-left: .1rem;" ng-click="searchDatas()"></i>
+      </div>
+      <!-- 取消历史余额报表 -->
+      <!--<div class="right-btns" ng-if="iSelectTab === 'History'">
+
+         <a href="" ng-click="changeHistoryTab(0)" ng-class="iHistroryTab === 0 ? 'active' : ''" class="btn-history">历史余额报表</a>
+        <a href="" ng-click="changeHistoryTab(1)" ng-class="iHistroryTab === 1 ? 'active' : ''" class="btn-history">历史奖金报表</a>
+      </div>-->
+      <!-- <div class="client-total" ng-if="iSelectTab === 'Clients'">
+        <span class="text">昨日新成交人数
+          <span class="red">{{}}8</span> 人
+        </span>
+        <span class="text">昨日总成交人数
+          <span class="red">{{}}8</span> 人
+        </span>
+        <span class="text">累计成交人数
+          <span class="red">{{}}8</span> 人
+        </span>
+      </div> -->
+    </div>
+    <ion-nav-view style="z-index: 2;"></ion-nav-view>
+  </div>
+</ion-view>

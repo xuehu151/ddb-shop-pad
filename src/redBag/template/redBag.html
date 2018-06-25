@@ -1,0 +1,71 @@
+<ion-view view-title="红包">
+  <div class="index-right bag">
+    <header class="clearfix">
+      <div class="fl text">
+        订单宝
+        <small>
+              店主端
+            </small>
+      </div>
+      <inst-message></inst-message>
+    </header>
+    <main>
+      <div class="top-row" ng-cloak>
+        <span class="month-choose" ng-click="whetherShowAllMonth=!whetherShowAllMonth">
+          <span>{{nowMonth}}月</span>
+          <ul class="status-ul month" ng-show="whetherShowAllMonth">
+            <li ng-repeat="month in allMonth" ng-click="searchOneMonth(month)">
+              {{month}}月
+            </li>
+          </ul>
+          <i class="triangle-down"></i>
+        </span>
+        <span class="amount" >
+          活动余额:
+          <span ng-cloak>{{balance.activityBalance/100 || 0}}元</span>
+        </span >
+        <span class="amount">
+          已派发:
+          <span ng-cloak>{{balance.alreadySend/100 || 0}}元</span>
+        </span>
+      </div>
+
+      <div class="table-red-bag" ng-cloak>
+        <div class="tr head">
+         <span style="width: 1.4rem;">日期</span>
+         <span style="width: 2.46rem;">彩民昵称</span>
+         <span style="width: 2.6rem;">手机号</span>
+         <span style="width: 1.8rem;">购彩支出</span>
+         <span style="width: 1.7rem;">红包金额</span>
+         <span style="width: 1.88rem;">彩种</span>
+         <span style="width: 1.7rem;">状态</span>
+         <span style="width: 1.66rem;">其他</span>
+       </div>
+       <div style="text-align: center;" ng-if="allRedBags.length === 0">
+         <img src="common/img/blank.png" >
+       </div>
+       <ion-scroll direction="y" style="height: 6.97rem;">
+         <div class="tr" ng-repeat="redBag in allRedBags track by $index">
+           <span style="width: 1.4rem;">{{redBag.date}}</span>
+           <span style="width: 2.46rem;">{{redBag.nickName}}</span>
+           <span style="width: 2.6rem;">{{redBag.phone}}</span>
+           <span style="width: 1.8rem;">{{redBag.orderMoney/100}}</span>
+           <span style="width: 1.7rem;">{{redBag.redBag/100}}</span>
+           <span style="width: 1.88rem;">{{redBag.lotteryType}}</span>
+           <span style="width: 1.7rem;">{{redBag.printImg ? '已返红包':'待返红包'}}</span>
+           <span style="width: 1.66rem;" ng-click=showRedBagModal($index)>
+             <span class="upload-choose" ng-if="!redBag.printImg">上传凭证</span>
+             <span class="need-more" ng-if="redBag.printImg">查看更多</span>
+           </span>
+         </div>
+         <div style="text-align: center;">
+           <img src="common/img/nomore.png" ng-if="allRedBags.length !== 0 && showLastPic === true" class="last-pic">
+         </div>
+         <ion-infinite-scroll ng-if="moreRedBagData.moredata" on-infinite="moreRedBagData.loadMore()" distance="1%"></ion-infinite-scroll>
+       </ion-scroll>
+      </div>
+
+    </main>
+  </div>
+</ion-view>
+

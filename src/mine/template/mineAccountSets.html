@@ -1,0 +1,159 @@
+<ion-view view-title="彩店设置">
+  <div class="account-mine-set">
+    <h2 class="title">
+      账户安全管理
+    </h2>
+    <div class="oneline">
+      <span class="left">
+        <span>用户名:</span>
+      <span ng-cloak>{{userInfo.account}}</span></span>
+      <!-- <span class="right" ng-click="openAccountNameModal()">
+        <i class="icon-bianji2"></i>
+        <span style="margin-left: .1rem;">编辑</span>
+      </span> -->
+    </div>
+    <div class="oneline">
+      <span class="left">
+        <span>手机号:</span>
+      <span ng-cloak>{{userInfo.phone}}</span></span>
+      <span class="right" ng-click="openAccountNameModal()">
+        <i class="icon-bianji2"></i>
+        <span style="margin-left: .1rem;">编辑</span>
+      </span>
+    </div>
+    <div class="operations">
+      <a ng-click="openEditPasswordModal('login')">修改<span>登录</span>密码
+      </a>
+      <a ng-click="openEditPasswordModal('operation')">修改<span>操作</span>密码
+      </a>
+    </div>
+    <div class="operations">
+      <a ng-click="exitLogin()"><span>退出登录</span>
+      </a>
+      <a style="border:none;"></a>
+    </div>
+  </div>
+</ion-view>
+
+<script id="editAccountNameModal.html" type="text/ng-template">
+  <ion-modal-view id="editAccountNameModal">
+    <h1 class="head">修改用户名及手机号</h1>
+    <div>
+      <form class="form-style" role="form" name="editAccount" ng-submit="confirmEditAccount()">
+        <div class="text1 clearfix">
+          <span>用户名:</span>
+          <i style="font-size: 30px;" ng-cloak>{{userInfo.realName}}</i>
+        </div>
+        <div class="text1 clearfix">
+          <span>旧手机号:</span>
+          <i style="font-size: 30px;" ng-cloak>{{userInfo.phone}}</i>
+        </div>
+        <div class="text1 clearfix">
+          <span>操作密码:</span>
+          <input type="password" name="" ng-model="operations.password">
+        </div>
+        <!-- 只有登录用户名和备注名 -->
+        <!-- <div class="text1 clearfix">
+          <span>新用户名:</span>
+          <label>
+            <input id="accountName"
+              type="text"
+              name="accountName"
+              ng-model="operations.realName"
+              ng-trim="true"
+              ng-pattern="/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/">
+            <div class="icon ion-close-round error"      ng-show="editAccount.accountName.$dirty && editAccount.accountName.$invalid">请输入字母、数字或中文
+            </div>
+          </label>
+        </div> -->
+        <div class="text1 clearfix">
+          <span>手机号码:</span>
+          <label>
+            <input id="phone"
+              type="text"
+              name="phone"
+              ng-model="operations.phone"
+              ng-trim="true"
+              ng-pattern="/^1\d{10}$/">
+            <div class="icon ion-close-round error" ng-show="editAccount.phone.$dirty && editAccount.phone.$invalid">请输入11位手机号码</div>
+          </label>
+        </div>
+        <div class="text1 clearfix">
+          <span>手机校验码:</span>
+          <input  class="verify" type="number" name="" ng-model="operations.verifyCode">
+          <a class="setting" ng-click="sendVerifyCode()">发送验证码</a>
+        </div>
+        <div class="text4">
+          <input type="submit" ng-class="editAccount.$invalid?'disable-btn':''" value="提交修改" />
+          <a ng-click="editAccountNameModal.hide()">关闭</a>
+        </div>
+        <p class="text2">
+          *输入新手机号收到的短信校验码
+        </p>
+      </form>
+    </div>
+  </ion-modal-view>
+</script>
+<!--
+<script id="resetLoginPassword.html" type="text/ng-template">
+  <ion-modal-view id="resetLoginPassword">
+    <h1 class="head">重新设置登录密码</h1>
+    <div>
+      <div class="text1 clearfix">
+        <span>用户名:</span>
+        <input type="text" name="">
+      </div>
+      <div class="text3">*请输入需要找回密码的账户名称</div>
+      <div class="text1 clearfix">
+        <span>手机号:</span>
+        <input type="tel" name="">
+        <a class="setting">发送验证码</a>
+      </div>
+      <div class="text3">*请输入账户绑定的手机号</div>
+      <div class="text1 clearfix">
+        <span>短信验证码:</span>
+        <input  class="verify" type="number" name="" ng-model="operations.password">
+        <a class="setting">没有收到?</a>
+      </div>
+
+      <div class="text2">
+        <a ng-click="confirmContactWays()">提交修改</a>
+        <a ng-click="resetLoginPassword.hide()">关闭</a>
+      </div>
+    </div>
+  </ion-modal-view>
+</script> -->
+
+<script id="editOperationPassword.html" type="text/ng-template">
+  <ion-modal-view id="editOperationPassword">
+    <h1 class="head" ng-cloak>{{oView.h1}}</h1>
+    <div>
+      <div class="text1 clearfix">
+        <span>账户名:</span>
+        <i style="font-size: 30px;" ng-cloak>{{userInfo.account}}</i>
+        <input ng-if="forgetPassword" type="tel" name="" ng-model="operations.editPassword1">
+      </div>
+      <div class="text1 clearfix">
+        <span>绑定手机号:</span>
+        <i style="font-size: 30px;" ng-cloak>{{userInfo.phone}}</i>
+        <a class="setting" ng-click="sendVerifyCode()">发送验证码</a>
+      </div>
+      <div class="text1 clearfix">
+        <span>手机校验码:</span>
+        <input  class="verify" type="number" name="" ng-model="operations.verifyCode2">
+      </div>
+      <div class="text1 clearfix">
+        <span>{{oView.text1}}</span>
+        <input type="password" name="" ng-model="operations.editPassword1">
+      </div>
+      <div class="text1 clearfix">
+        <span>{{oView.text2}}</span>
+        <input type="password" name="" ng-blur="checkWhetherSame()" ng-model="operations.editPassword2">
+      </div>
+      <div class="text2">
+        <a ng-click="confirmEditPassword()">提交修改</a>
+        <a ng-click="editPasswordModal.hide()">关闭</a>
+      </div>
+    </div>
+  </ion-modal-view>
+</script>

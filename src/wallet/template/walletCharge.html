@@ -1,0 +1,35 @@
+<ion-view view-title="充值">
+  <div class="charge">
+    <div class="charge-left">
+      <h3>{{view.h3}}</h3>
+      <div style="text-align: center;" ng-if="allCharges.length === 0">
+        <img src="common/img/blank.png" >
+      </div>
+      <ion-scroll zooming="true" direction="y" style="width: 5.8rem; height: 7.88rem;">
+        <ion-list>
+          <ion-item ng-class="eachCharge.nowClick?'nowpeople':''"  ng-click="eachCharge.afterDoneCharge || showVerify($index)"  ng-repeat="eachCharge in allCharges" ng-disabled="eachCharge.afterDoneCharge">
+            <img src="{{eachCharge.customerHeadImg}}" alt="" />
+            <span class="name" ng-cloak>{{eachCharge.customerName}}</span>
+            <span class="apply fr" ng-if="!eachCharge.afterDoneCharge">
+              {{view.target}}
+              <span class="apply-amount">¥{{eachCharge.money/100 | number:2}}</span> 元
+            </span>
+            <span class="apply-suc fr" ng-if="eachCharge.afterDoneCharge" ng-cloak>
+              {{eachCharge.afterDoneCharge}}
+            </span>
+          </ion-item>
+
+        </ion-list>
+        <div style="text-align: center;">
+          <img src="common/img/nomore.png" ng-if="allCharges.length !== 0 && showLastPic === true" class="last-pic">
+        </div>
+        <ion-infinite-scroll ng-if="moreChargeApply.moredata" on-infinite="moreChargeApply.loadMore()" distance="1%"></ion-infinite-scroll>
+      </ion-scroll>
+      <div class="operations">
+        <a ui-sref="modules.wallet.charge.records">{{view.record}}</a>
+        <a ng-click="chargeToCust()">{{view.launch}}</a>
+      </div>
+    </div>
+    <ion-nav-view style="width: 9.4rem;position: absolute;right: 0;top: 0;"></ion-nav-view>
+  </div>
+</ion-view>

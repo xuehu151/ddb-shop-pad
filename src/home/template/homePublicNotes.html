@@ -1,0 +1,20 @@
+<ion-view view-title="系统公告">
+  <div class="home-public">
+    <div class="content">
+      <div class="title">
+        <span class="fl">系统公告</span>
+      </div>
+      <ion-scroll direction="y" style="height:7.46rem;">
+        <div class="more">
+          <div ng-click="checkDetail($index)" ng-repeat="note in allNotes">
+            <i class="triangle"></i>
+            <span ng-cloak>{{note.title}}</span>
+            <span class="fr" ng-cloak>{{note.publicDate}}</span>
+          </div>
+
+        </div>
+        <ion-infinite-scroll ng-if="morePublicNotes.moredata" on-infinite="morePublicNotes.loadMore()" distance="1%"></ion-infinite-scroll>
+      </ion-scroll>
+    </div>
+  </div>
+</ion-view>

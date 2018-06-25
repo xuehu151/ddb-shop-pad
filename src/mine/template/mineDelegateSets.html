@@ -1,0 +1,30 @@
+<ion-view view-title="彩店设置">
+  <div class="delegate-mine-setting">
+    <div class="title">
+      <span>彩店委托</span>
+      <span>委托说明</span>
+    </div>
+    <h2 class="subtitle">委托时间选择</h2>
+    <div class="part">
+      <span>起:</span>
+      <input type="time" name="" value="{{operations.startTime}}" ng-model="operations.startTime">
+    </div>
+    <div class="part" style="margin-top: .32rem;">
+      <span>至:</span>
+      <input type="time" name="" value="{{operations.endTime}}" ng-model="operations.endTime">
+    </div>
+
+    <div class="text6">
+      <span>确认委托</span>
+    </div>
+    <div class="text4">
+      <input class="icon-checked" type="checkbox" name="" />非营业时间，订单是否委托
+    </div>
+    <p class="text5">
+      *勾选表示您已同意将非营业时间进行托管
+    </p>
+    <p class="text3">
+      * 营业时间之外，客户仍可提交方案到店，但会提醒用户店铺已经休息。
+    </p>
+  </div>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-modal-view id="editSaleTimeModal">
+  <h1 class="head">营业时间修改</h1>
+  <div class="part">
+    <span>起:</span>
+    <input type="time" name="" value="{{operations.startTime}}" ng-model="operations.startTime">
+  </div>
+  <div class="part" style="margin-top: .32rem;">
+    <span>至:</span>
+    <input type="time" name="" value="{{operations.endTime}}"  ng-model="operations.endTime">
+  </div>
+  <div class="text1 clearfix">
+    <span>管理密码:</span>
+    <input type="password" name=""  ng-model="operations.password">
+    <a class="setting" ng-click="editSaleTimeModal.hide()" ui-sref="modules.mine.accountSets({editAccount:'editAccount'})">忘记操作密码</a>
+  </div>
+  <div class="text2">
+    <a ng-click="confirmEditSaleTime()">提交修改</a>
+    <a ng-click="closeEditSaleTimeModal()">关闭</a>
+  </div>
+  <!-- <p class="text3">
+    * 营业时间之外，客户仍可提交方案到店，但会提醒用户店铺已经休息。
+  </p>
+  <div class="text4">
+    <input class="icon-checked" type="checkbox" name="" />非营业时间，订单是否委托
+  </div>
+  <p class="text5">
+    *勾选表示您已同意将非营业时间进行托管
+  </p> -->
+</ion-modal-view>

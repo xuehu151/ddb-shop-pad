@@ -1,0 +1,80 @@
+<ion-view view-title="登录">
+  <div class="login-wrap">
+    <div class="login">
+      <header class="cssf41a616541b763">彩店端登录</header>
+      <div class="content">
+        <p>
+          <i class="icon-username"></i>
+          <input type="text" name="user" placeholder="手机号码" ng-model="userLogin.phone" ng-focus="whetherOnInput=true" ng-blur="whetherOnInput=false" />
+          <span class="delete inlogin" ng-if="whetherOnInput" ng-click="deleteLogin('phone')"></span>
+        </p>
+        <p>
+          <i class="icon-password"></i>
+          <input type="password" name="password" placeholder="密码" ng-model="userLogin.password" ng-focus="whetherOnInput2=true" ng-blur="whetherOnInput2=false" />
+          <span class="delete inlogin" ng-if="whetherOnInput2" ng-click="deleteLogin('password')"></span>
+        </p>
+        <p style="border-bottom: none;" class="clearfix">
+          <span class="fl" ng-click="selectRemberPass=!selectRemberPass">
+            <span class="checkbox-rember"  ng-class="selectRemberPass?'checked':''">
+              <i class="icon-check2" ng-show="selectRemberPass"></i>
+            </span>记住密码
+          </span>
+          <a href="" ui-sref="register" class="fl" style="color: #d11d1d;margin-left: 1.1rem;">店主账号审核</a>
+          <a href="" ng-click="forgetPassword()" class="fr" style="color: #d11d1d">忘记密码?</a>
+        </p>
+      </div>
+      <!-- <button class="login-submit" ui-sref="modules.home">登录</button> -->
+      <button class="login-submit" ng-click="login()">登录</button>
+    </div>
+  </div>
+  <footer class="login-footer">
+    ©百宝彩(北京)信息技术有限公司
+  </footer>
+  <div class="login-wrong-modal" ng-show="whetherWrong">
+    <div class="bg"></div>
+    <div class="wrong-content">
+      <div class="top">提示</div>
+      <div class="middle">
+        {{loginError}}
+      </div>
+      <div class="bottom" ng-click="whetherWrong=!whetherWrong">
+        确定
+      </div>
+    </div>
+  </div>
+
+  <div ng-show="isForget" class="forget-password-wrap">
+    <div class="bg"></div>
+    <div id="forgetPasswordModal" >
+      <h1 class="head" ng-cloak>忘记密码</h1>
+      <div>
+        <!-- <div class="text1 clearfix">
+              <span>账户名:</span>
+              <i style="font-size: 30px;" ng-cloak>{{userInfo.account}}</i>
+            </div> -->
+        <div class="text1 clearfix">
+          <span>绑定手机号:</span>
+          <input type="text" name="" ng-model="forgetParams.phone">
+          <a class="setting" ng-click="sendVerifyCode()">发送验证码</a>
+        </div>
+        <div class="text1 clearfix">
+          <span>手机校验码:</span>
+          <input class="verify" type="number" name="" ng-model="forgetParams.verifyCode">
+        </div>
+        <div class="text1 clearfix">
+          <span>登录密码</span>
+          <input type="password" name="" ng-model="forgetParams.resetPassword1">
+        </div>
+        <div class="text1 clearfix">
+          <span>确认登录密码</span>
+          <input type="password" name="" ng-model="forgetParams.resetPassword2">
+        </div>
+        <div class="text2">
+          <a ng-click="confirmResetLoginPass()">提交修改</a>
+          <a ng-click="closeForgetModal()">关闭</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>
+

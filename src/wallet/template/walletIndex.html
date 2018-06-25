@@ -1,0 +1,32 @@
+<ion-view view-title="钱包">
+  <header class="clearfix">
+    <div class="fl text">
+      订单宝
+      <small>
+          店主端
+        </small>
+    </div>
+    <inst-message></inst-message>
+  </header>
+  <main class="wallet">
+    <div class="clearfix">
+      <div class="left fl" ng-click="doWallet('charge')">
+        <i class="icon-charge" style="font-size: 120px;vertical-align: sub;"></i> 充值
+      </div>
+      <div class="right fr">
+        <div class="right-t fl" ng-click="doWallet('withdraw')">
+          <i class="icon-withdraw" style="font-size: 80px;vertical-align: sub;"></i> 提现
+        </div>
+        <div>
+          <div class="right-bl fl" ng-click="goRecords('charge')">
+            <i class="icon-stats-dots"></i>充值记录
+          </div>
+          <div class="right-br fr" ng-click="goRecords('withdraw')">
+            <i class="icon-stats-dots"></i>提现记录
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</ion-view>

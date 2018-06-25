@@ -1,0 +1,276 @@
+<ion-view view-title="彩店设置">
+  <ion-content class="mine-settings">
+    <!-- <div class="part">
+      <div class="uptitle clearfix">
+        <span class="left">彩店余额:{{shopSetsView.money/100 | number:2}}元</span>
+      </div>
+    </div> -->
+    <div class="part">
+      <div class="uptitle clearfix">
+        <span class="left">彩店介绍</span>
+        <div class="right" ng-click="openEditIntroModal()">
+          <i class="icon-bianji2"></i>
+          <span style="margin-left: .26rem;">编辑</span>
+        </div>
+      </div>
+      <div class="down clearfix">
+        <div class="left fl">
+          <div class="photo-wrap">
+            <img ng-click="showLargeUploadImg(shopImgSrc)" src="{{shopImgSrc}}" />
+          </div>
+          <p>体彩/自营</p>
+        </div>
+        <div class="right fl">
+          <p>
+            <span ng-cloak>彩店名称:{{shopSetsView.name}}</span>
+            <span style="margin-left: .8rem;" ng-cloak>编号:{{shopSetsView.number}}</span>
+          </p>
+          <p>
+            <span ng-cloak>彩店地址:{{shopSetsView.address}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="part">
+      <div class="uptitle clearfix">
+        <span class="left">对外联系方式</span>
+        <div class="right" ng-click="openContactWaysModal()">
+          <i class="icon-bianji2"></i>
+          <span style="margin-left: .26rem;">编辑</span>
+        </div>
+      </div>
+      <div class="down clearfix row">
+        <div class="col contact " ng-if="shopSetsView.phone">
+          <i class="icon-phone"></i>
+          <p ng-cloak>{{shopSetsView.phone}}</p>
+          <!-- <a>取消</a> -->
+        </div>
+        <div class="col contact " ng-if="shopSetsView.qq || shopSetsView.qqTouchQRCode">
+          <i class="icon-qq" ng-click="showLargeQr(shopSetsView.qqTouchQRCode)"></i>
+          <p ng-cloak>{{shopSetsView.qq}}</p>
+          <!-- <a>取消</a> -->
+        </div>
+        <div class="col contact " ng-if="shopSetsView.wechat || shopSetsView.wechatTouchQRCode">
+          <i class="icon-weixin1" ng-click="showLargeQr(shopSetsView.wechatTouchQRCode)"></i>
+          <p ng-cloak>{{shopSetsView.wechat}}</p>
+          <!-- <a>取消</a> -->
+        </div>
+        <div class="col contact " ng-if="shopSetsView.alipay || shopSetsView.alipayTouchQRCode">
+          <i class="icon-zhifubao" ng-click="showLargeQr(shopSetsView.alipayTouchQRCode)"></i>
+          <p ng-cloak>{{shopSetsView.alipay}}</p>
+          <!-- <a>取消</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="part">
+      <div class="uptitle clearfix">
+        <span class="left">店铺营业状态及时间</span>
+      </div>
+      <div class="down clearfix">
+        <div class="fl outer-left" ng-if="shopSetsView.status===0">
+          <p>营业中</p>
+          <p>客户可提交选号到店</p>
+        </div>
+        <div class="fl outer-left" ng-if="shopSetsView.status!==0">
+          <p>暂停营业</p>
+          <p>所有客户将无法提交方案到店</p>
+        </div>
+        <div class="fr outer-right" ng-click="openOnSaleTimeModal()">
+          <i class="icon-bianji2"></i>
+          <span style="margin-left: .26rem;">编辑</span>
+        </div>
+      </div>
+      <div class="down clearfix">
+        <div class="fl outer-left">
+          <p>营业时间:</p>
+          <p ng-cloak>{{shopSetsView.startTime}}-{{shopSetsView.endTime}}</p>
+          <!-- <p>非营业时间将提示客户店铺无法处理</p> -->
+        </div>
+        <div class="fr outer-right" ng-click="openEditSaleTimeModal()">
+          <i class="icon-bianji2"></i>
+          <span style="margin-left: .26rem;">编辑</span>
+        </div>
+      </div>
+    </div>
+    <div class="part">
+      <div class="uptitle clearfix">
+        <span class="left">收款方式</span>
+        <div class="right" ng-click="openMoneyWaysModal()">
+          <i class="icon-bianji2"></i>
+          <span style="margin-left: .26rem;">编辑</span>
+        </div>
+      </div>
+      <div class="down clearfix row">
+        <div class="col contact " ng-if="shopSetsView.alipayQRCode" ng-click="showLargeQr(shopSetsView.alipayQRCode)">
+          <i class="icon-zhifubao"></i>
+          <p>支付宝转账</p>
+        </div>
+        <div class="col contact " ng-if="shopSetsView.wechatQRCode" ng-click="showLargeQr(shopSetsView.wechatQRCode)">
+          <i class="icon-weixin"></i>
+          <p>微信转账</p>
+        </div>
+        <div class="col contact " ng-if="shopSetsView.qqQRCode" ng-click="showLargeQr(shopSetsView.qqQRCode)">
+          <i class="icon-qq"></i>
+          <p>QQ钱包转账</p>
+        </div>
+        <div class="col contact " ng-if="shopSetsView.bankCard">
+          <i class="icon-bankNo"></i>
+          <p>银行卡转账</p>
+          <p ng-cloak>{{shopSetsView.bankCard}}</p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+<script id="editIntroModal.html" type="text/ng-template">
+  <ion-modal-view id="editIntroModal">
+    <ion-content>
+      <h1 class="head">修改彩店介绍</h1>
+      <div style="padding-left: 1.35rem;">
+        <div class="part">
+          <span style="vertical-align: top;">店铺介绍:</span>
+          <textarea class="info" ng-model=operations.description></textarea>
+        </div>
+        <div class="part">
+          <span>彩店名称:</span>
+          <input type="text" class="info-input" ng-model=operations.name />
+        </div>
+        <div class="part">
+          <span>店铺编号:</span>
+          <input type="text" class="info-input" ng-model=operations.number />
+        </div>
+        <div class="part">
+          <span>彩店地址:</span>
+          <input type="text" class="info-input" ng-model=operations.address />
+        </div>
+        <div class="part">
+          <span style="vertical-align: top;">店铺照片:</span>
+          <div class="photo-wrap">
+            <img src="{{imgUrlTotal.shopImg}}" alt="shop" />
+          </div>
+          <a href="" ng-click="showAction()" class="upload-btn">上传照片</a>
+        </div>
+        <div class="text1 clearfix">
+          <span>操作密码：</span>
+          <input type="password" name="" ng-model="operations.password">
+          <a class="" ng-click="editIntroModal.hide()" ui-sref="modules.mine.accountSets({editAccount:'editAccount'})">设置操作密码</a>
+        </div>
+        <div class="text2">
+          <a ng-click="confirmEditIntro()">提交修改</a>
+          <a ng-click="closeEditIntroModal()">关闭</a>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+<script id="contactWaysModal.html" type="text/ng-template">
+  <ion-modal-view id="contactWaysModal">
+    <h1 class="head">修改对外联系方式</h1>
+    <div>
+      <div class="text1 clearfix">
+        <span>联系手机:</span>
+        <input type="tel" name="" ng-model="operations.phone" maxlength="11">
+      </div>
+      <div class="text1 clearfix">
+        <span>QQ:</span>
+        <input type="tel" name="" ng-model="operations.qq">
+        <a href="" ng-click="uploadQr('qq')" class="upload-btn">上传二维码</a>
+      </div>
+      <div class="text1 clearfix">
+        <span>微信:</span>
+        <input type="text" name="" ng-model="operations.wechat">
+        <a href="" ng-click="uploadQr('wechat')" class="upload-btn">上传二维码</a>
+      </div>
+      <div class="text1 clearfix">
+        <span>支付宝:</span>
+        <input type="text" name="" ng-model="operations.alipay">
+        <a href="" ng-click="uploadQr('alipay')" class="upload-btn">上传二维码</a>
+      </div>
+      <div class="text1 clearfix">
+        <span>管理密码:</span>
+        <input type="password" name="" ng-model="operations.password">
+        <a class="setting" ng-click="contactWaysModal.hide()" ui-sref="modules.mine.accountSets({editAccount:'editAccount'})">忘记操作密码</a>
+      </div>
+      <div class="text2">
+        <a ng-click="confirmContactWays()">提交修改</a>
+        <a ng-click="closeContactWaysModal()">关闭</a>
+      </div>
+    </div>
+  </ion-modal-view>
+</script>
+<script id="onSaleTimeModal.html" type="text/ng-template">
+  <ion-modal-view id="onSaleTimeModal">
+    <h1 class="head">彩店营业时间</h1>
+    <div style="margin-top: .78rem">
+      <span class="choose">
+          <input class="icon-checked" type="radio" name="onsale" ng-click="operations.whetherOnSale=true;" ng-checked="operations.whetherOnSale" />营业中
+        </span >
+        <span class="choose">
+          <input class="icon-checked" type="radio" name="onsale" ng-click="operations.whetherOnSale=false;" ng-checked="!operations.whetherOnSale" />暂停营业
+        </span>
+    </div>
+    <div class="text1 clearfix">
+      <span>管理密码:</span>
+      <input type="password" name="" ng-model="operations.password">
+      <a class="setting" ng-click="onSaleTimeModal.hide()" ui-sref="modules.mine.accountSets({editAccount:'editAccount'})">忘记操作密码</a>
+    </div>
+    <div class="text2">
+      <a ng-click="confirmChooseSaling()">提交修改</a>
+      <a ng-click="closeOnSaleTimeModal()">关闭</a>
+    </div>
+    <p class="text3">
+      * 暂停营业后，所有订单将委托到百宝彩。
+    </p>
+    <!-- <div class="text4" ng-if="!operations.whetherOnSale">
+      <input class="icon-checked" type="checkbox" name="" ng-model="operations.whetherOnDelegate" />暂停营业时，订单是否委托
+    </div>
+    <p class="text5">
+      *勾选表示您已同意将在暂停营业时进行托管
+    </p> -->
+  </ion-modal-view>
+</script>
+<!-- 修改营业时间的modal在common中 -->
+<script id="moneyWaysModal.html" type="text/ng-template">
+  <ion-modal-view id="moneyWaysModal">
+    <h1 class="head">收款方式选择</h1>
+    <div>
+      <div class="text1 clearfix">
+        <span>QQ钱包:</span>
+        <a href="" class="upload-btn" ng-click="uploadQr('qqMoney')">上传二维码</a>
+        <i ng-if="$scope.imgUrlTotal.qqMoney">已上传</i>
+      </div>
+      <div class="text1 clearfix">
+        <span>微信钱包:</span>
+        <a href="" class="upload-btn" ng-click="uploadQr('wechatMoney')">上传二维码</a>
+        <i ng-if="$scope.imgUrlTotal.wechatMoney">已上传</i>
+      </div>
+      <div class="text1 clearfix">
+        <span>支付宝钱包:</span>
+        <a href="" class="upload-btn" ng-click="uploadQr('alipayMoney')">上传二维码</a>
+        <i ng-if="$scope.imgUrlTotal.alipayMoney">已上传</i>
+      </div>
+      <div class="text1 clearfix">
+        <span>银行卡账号:</span>
+        <input style="width: 4rem;" type="text" name="" ng-model="operations.bankCard">
+      </div>
+      <div class="text1 clearfix">
+        <span>管理密码:</span>
+        <input type="password" name="" ng-model="operations.password">
+        <a class="setting" ng-click="moneyWaysModal.hide()" ui-sref="modules.mine.accountSets({editAccount:'editAccount'})">忘记操作密码</a>
+      </div>
+      <div class="text2">
+        <a ng-click="confirmMoneyWays()">提交修改</a>
+        <a ng-click="closeMoneyWaysModal()">关闭</a>
+      </div>
+    </div>
+  </ion-modal-view>
+</script>
+<!-- <script type="text/ng-template" id="biggerQR.html">
+  <ion-modal-view id="qrModal">
+    <div class="qr-wrap">
+      <div class="big-qrcode" id="qrcode_2">
+      </div>
+    </div>
+    <p class="qr-text">彩店分享二维码</p>
+  </ion-modal-view>
+</script> -->

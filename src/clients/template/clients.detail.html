@@ -1,0 +1,97 @@
+<ion-view view-title="client">
+  <div class="index-right home">
+    <header class="clearfix">
+      <div class="fl text">
+        <span class="icon-arrowLeft" ui-sref="modules.clients"></span>
+        <span style="text-decoration: underline;">{{choosedPerson}}</span>
+        <small class="subtitile">
+              明细查询
+            </small>
+      </div>
+      <inst-message></inst-message>
+    </header>
+    <div class="clients">
+      <div class="filter-time">
+        <div class="left-filter amount-detail">
+          <input type="datetime-local" ng-model="search.startDate" name="beginTime" required ng-change="whetherInMonth()" /> —
+          <input type="datetime-local" ng-model="search.endDate" name="endTime" required />
+          <a class="search-btn" ng-click="searchDetail()">查询</a>
+        </div>
+        <div class="amount-row">
+          <span>委托方案:</span>
+          <span ng-cloak>0, </span>
+          <span>委托金额:</span>
+          <span ng-cloak>0, </span>
+          <span>出票成功:</span>
+          <span ng-cloak>{{allTotalAmount.successOutTicketCount}}, </span>
+          <span>实兑奖金:</span>
+          <span ng-cloak>{{allTotalAmount.exchangeBonus/100}} </span>
+        </div>
+        <a class="pri-btn" ng-class="whetherOrders?'choosed-btn':''" ng-click="chooseOne('orders')">个人下单明细</a>
+        <a class="pri-btn" ng-class="whetherOrders?'':'choosed-btn'" ng-click="chooseOne('account')">个人余额明细</a>
+      </div>
+      <div has-bouncing="true" delegate-handle="mainScroll">
+        <div ng-if="whetherOrders">
+          <div class="clients-table">
+              <div class="table-head">
+                <span style="width: 4rem">提交时间</span>
+                <span style="width: 2.88rem">金额</span>
+                <span style="position: relative;width: 2.96rem;z-index: 3;" ng-click="whetherShowStatus=!whetherShowStatus">
+                  <b>方案状态</b>
+                  <ul class="status-ul" ng-show="whetherShowStatus">
+                    <li ng-repeat="eachStatus in allStatus " ng-click="filterStatus(eachStatus)">{{eachStatus}}</li>
+                  </ul>
+                  <i class="triangle-down"></i>
+                </span>
+                <span style="width: 1.6rem">取票</span>
+                <!-- <span style="width: 1.88rem">预计奖金</span>
+                <span style="width: 1.88rem">实兑奖金</span> -->
+                <span style="width: 3.76rem">方案编号</span>
+              </div>
+              <ion-scroll direction="y" style="height: 7.13rem">
+            <div class="table-body clearfix" ng-repeat="each in allClientsDetail">
+                <span style="width: 4rem" ng-cloak>{{each.createDate}}</span>
+                <span style="width: 2.88rem" ng-cloak>{{each.money/100}}</span>
+                <span style="width: 2.96rem;" ng-cloak>{{each.chineseStatus}}</span>
+                <span style="width: 1.6rem" ng-cloak>{{each.whetherHaveGetTicket?'已取票':'未取票'}}</span>
+                <!-- <span style="width: 1.88rem" ng-cloak>{{each.name}}待确认</span>
+                <span style="width: 1.88rem" ng-cloak>{{each.name}}待确认</span> -->
+                <span style="width: 3.76rem" ng-cloak>{{each.ticketID}}</span>
+            </div >
+            <ion-infinite-scroll ng-if="moreClientsDetail.moredata" on-infinite="moreClientsDetail.loadMore()" distance="1%"></ion-infinite-scroll>
+            </ion-scroll>
+          </div>
+
+        </div>
+        <div ng-if="!whetherOrders">
+          <div class="clients-table">
+              <div class="table-head">
+                <span style="width: 4rem;">时间</span>
+                <span style="position: relative;width: 2.44rem;z-index: 3;" ng-click="whetherShowStatus=!whetherShowStatus">
+                  <b>全部分类</b>
+                  <ul class="status-ul" ng-show="whetherShowStatus">
+                    <li ng-repeat="eachStatus in allStatus " ng-click="filterStatus(eachStatus)">{{eachStatus}}</li>
+                  </ul>
+                  <i class="triangle-down"></i>
+                </span>
+                <span style="width: 2.2rem;">金额</span>
+                <span style="width: 2.2rem;">余额</span>
+                <span style="width: 4.36rem;">订单编号</span>
+              </div>
+              <ion-scroll direction="y" style="height: 7.13rem">
+            <div class="table-body clearfix" ng-repeat="each in allBalanceDetail">
+                <span style="width: 4rem;" ng-cloak>{{each.updateDate}}</span>
+                <span style="width: 2.44rem;" ng-cloak>{{each.chineseType}}</span>
+                <span style="width: 2.2rem;" ng-cloak>{{each.money/100}}</span>
+                <span style="width: 2.2rem;" ng-cloak>{{each.balance/100 | number:2}}</span>
+                <span style="width: 4.36rem;" ng-cloak>{{each.ticketID}}</span>
+            </div >
+            <ion-infinite-scroll ng-if="moreBalanceDetail.moredata" on-infinite="moreBalanceDetail.loadMore()" distance="1%"></ion-infinite-scroll>
+            </ion-scroll>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>

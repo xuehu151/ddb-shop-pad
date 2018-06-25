@@ -1,0 +1,25 @@
+<ion-view view-title="充值提现发起成功">
+  <div class="charge-right" ng-click="backToCharge()">
+    <h3>{{oView.h3}}</h3>
+    <div class="waitting-info">
+
+      <div style="margin-top: .5rem">
+        <i class="icon-checkFinish img-style" ></i>
+      </div>
+      <p class="text1">{{oView.text1}}</p>
+      <div class="charge-suc">
+        <div style="opacity: .5">
+          <p>彩民:
+            <span style="text-decoration: underline;" ng-cloak>{{nowChargeUser.userName}}</span>
+          </p>
+          <p>状态:
+            <span style="text-decoration: underline;">{{oView.text3}}</span>
+          </p>
+          <p>{{oView.text2}}:
+            <span style="text-decoration: underline;" ng-cloak>{{nowChargeUser.money}}</span>元
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>

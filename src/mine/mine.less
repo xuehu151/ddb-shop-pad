@@ -1,0 +1,969 @@
+@import "../common/css/common.less";
+.color-blue {
+  color: #008af3;
+}
+
+.mine-right>header {
+  .quick-btn {
+    width: 2.08rem;
+    height: .64rem;
+    text-align: center;
+    border: 1px solid @red;
+    background-color: #eef1f7;
+    border-radius: 10px;
+    line-height: .64rem;
+    .color-red;
+    font-size: 24px;
+    margin-top: .26rem;
+    margin-left: 3.2rem;
+  }
+  .tab-default {
+    position: relative;
+    .color-666;
+    font-size: 24px;
+    width: 2.48rem;
+    height: .7rem;
+    background-color: #fff;
+    text-align: center;
+    line-height: .7rem;
+    display: inline-block;
+    margin: .41rem .18rem 0 0;
+    .mess-num {
+      background-color: @red;
+      color: #fff;
+      position: absolute;
+      top: -.1rem;
+      right: -.1rem;
+    }
+  }
+  .tab-select {
+    border-bottom: 6px solid @red;
+    .color-red;
+  }
+}
+
+.mine-settings {
+  margin: 0 .34rem 1.28rem;
+  .part {
+    margin-top: .7rem;
+  }
+  .part:last-child {
+    margin-top: 1.33rem;
+  }
+  .uptitle {
+    padding-bottom: .34rem;
+    border-bottom: 1px solid #c4c4c4;
+    &>.left {
+      .fs(30px);
+      font-weight: bold;
+      .color-333;
+      float: left;
+      margin-left: .38rem;
+    }
+    &>.right {
+      .fs(31px);
+      .color-blue;
+      float: right;
+      margin-right: .28rem;
+    }
+  }
+  .down {
+    margin-top: .5rem;
+    &>.left {
+      text-align: center;
+      margin-left: .38rem;
+      img {
+        width: 4rem;
+        height: 2.8rem;
+        vertical-align: middle;
+        margin-top: .15rem;
+      }
+      &>p {
+        margin-top: .34rem;
+        .fs(31px);
+        .color-666;
+      }
+    }
+    .photo-wrap {
+      width: 4.2rem;
+      height: 3.1rem;
+      border: 1px solid #e7e7e7;
+      .brad(.05rem);
+    }
+    &>.right {
+      .fs(31px);
+      .color-666;
+      margin-left: 1.3rem;
+      &>p {
+        margin-top: .96rem;
+      }
+    }
+    &>.contact {
+      text-align: center;
+      &>i {
+        .fs(100px);
+      }
+      &>.icon-phone {
+        color: #ed5564;
+      }
+      &>.icon-qq {
+        color: #48cfae;
+      }
+      &>.icon-weixin1 {
+        color: #8ab331;
+      }
+      &>.icon-zhifubao {
+        color: #56abe4;
+      }
+      &>.icon-weixin {
+        color: #3cb035;
+      }
+      &>.icon-bankNo {
+        color: #d21e1e;
+      }
+      &>p {
+        .fs(31px);
+        .color-666;
+        margin-top: .4rem;
+      }
+      &>a {
+        .fs(31px);
+        .color-blue;
+        display: inline-block;
+        margin-top: .4rem;
+      }
+    }
+    &>.outer-left {
+      margin-left: .38rem;
+      color: #666;
+      &>p:first-child {
+        .fs(32px);
+      }
+      &>p:last-child {
+        .fs(27px);
+        margin-top: .24rem;
+      }
+    }
+    &>.outer-right {
+      .fs(27px);
+      .color-blue;
+      margin-right: .28rem;
+    }
+  }
+}
+
+#editIntroModal {
+  width: 11.64rem;
+  border-radius: .05rem;
+  top: .8rem;
+  left: 1.5rem;
+  height: 8.78rem;
+  h1.head {
+    .fs(30px);
+    .color-333;
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid @red;
+    text-align: center;
+    margin: 0;
+  }
+  div.part {
+    .fs(24px);
+    .color-333;
+    margin-top: .5rem;
+    &>textarea.info,&>.info-input {
+      .fs(24px);
+      display: inline-block;
+      width: 7.04rem;
+      height: 2.9rem;
+      border: 1px solid #b2b2b2;
+      margin-left: .26rem;
+      .color-666;
+    }
+    &>.info-input {
+
+      line-height: .4rem;
+      height: .4rem;
+    }
+    &>.photo-wrap {
+      width: 3.44rem;
+      height: 2.52rem;
+      border: 1px solid #e7e7e7;
+      .brad(.05rem);
+      display: inline-block;
+      margin-left: .26rem;
+      text-align: center;
+      img {
+        width: 3.28rem;
+        height: 2.3rem;
+        vertical-align: middle;
+        margin-top: .1rem;
+      }
+    }
+    &>.upload-btn {
+      width: 2.66rem;
+      height: .64rem;
+      border: 1px solid #b2b2b2;
+      .fs(24px);
+      .color-333;
+      display: inline-block;
+      line-height: .64rem;
+      text-align: center;
+      margin-left: .76rem;
+    }
+  }
+  div.part:first-child {
+    margin-top: .44rem;
+  }
+  div.text1 {
+    display: flex;
+    align-items: center;
+    margin: .8rem 0 .8rem 1.16rem;
+    .fs(24px);
+    .color-333;
+    &>input {
+      width: 2.7rem;
+      border: 1px solid @grey9;
+      text-indent: .05rem;
+      .fs(30px);
+      .color-333;
+      height: .54rem;
+      line-height: .54rem;
+    }
+    &>a {
+      .fs(18px);
+      .color-red;
+      margin-left: .32rem;
+      text-decoration: underline;
+    }
+  }
+  div.text2 {
+    margin-right: .44rem;
+    padding-bottom: .86rem;
+    &>a {
+      width: 1.86rem;
+      height: .7rem;
+      line-height: .7rem;
+      .fs(28px);
+    }
+    &>a:first-child {
+      #btn>.red-btn;
+      margin-left: 2.14rem;
+    }
+    &>a:last-child {
+      border-radius: 10px;
+      .color-333;
+      background-color: #ebebeb;
+      text-align: center;
+      display: inline-block;
+      margin-left: .76rem;
+    }
+  }
+}
+
+#contactWaysModal,
+#editOperationPassword {
+
+  border-radius: .05rem;
+  top: .8rem; // left: 1.5rem;
+  h1.head {
+    .fs(30px);
+    .color-333;
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid @red;
+    text-align: center;
+    margin: 0;
+  }
+  div.text1 {
+    display: flex;
+    align-items: center;
+    margin: .56rem 0 0 0;
+    .fs(24px);
+    .color-333;
+    &>span {
+      width: 2.3rem;
+      text-align: right;
+      margin-right: .4rem;
+    }
+    &>input {
+      width: 2.7rem;
+      border: 1px solid @grey9;
+      text-indent: .05rem;
+      .fs(30px);
+      .color-333;
+      height: .54rem;
+      line-height: .54rem;
+    }
+    &>a.setting {
+      .fs(18px);
+      .color-red;
+      margin-left: .32rem;
+      text-decoration: underline;
+    }
+    &>.upload-btn {
+      width: 2.66rem;
+      height: .54rem;
+      border: 1px solid #b2b2b2;
+      .fs(24px);
+      .color-333;
+      display: inline-block;
+      line-height: .54rem;
+      text-align: center;
+      margin-left: .76rem;
+    }
+  }
+
+  div.text2 {
+    margin-right: .44rem;
+    padding: .78rem 0 .66rem;
+    &>a {
+      width: 1.86rem;
+      height: .7rem;
+      line-height: .7rem;
+      .fs(28px);
+    }
+    &>a:first-child {
+      #btn>.red-btn;
+      margin-left: 2.14rem;
+    }
+    &>a:last-child {
+      border-radius: 10px;
+      .color-333;
+      background-color: #ebebeb;
+      text-align: center;
+      display: inline-block;
+      margin-left: .76rem;
+    }
+  }
+}
+
+#contactWaysModal {
+  width: 9.36rem;
+  height: 8.78rem;
+  div.text1:first-child {
+    margin-top: .96rem;
+  }
+}
+
+#onSaleTimeModal,
+#editSaleTimeModal {
+  width: 9.36rem;
+  border-radius: .05rem;
+  top: .8rem; // left: 1.5rem;
+  height: 6.5rem;
+  h1.head {
+    .fs(30px);
+    .color-333;
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid @red;
+    text-align: center;
+    margin: 0;
+  }
+  .choose {
+    .fs(24px);
+    .color-333;
+    &>input.icon-checked {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: .3rem;
+      height: .3rem;
+      position: relative;
+      margin-right: .36rem;
+      margin-left: 2.32rem;
+    }
+    &>input.icon-checked:after {
+      width: .2rem;
+      height: .2rem;
+      content: '';
+      display: inline-block;
+      border: 3px solid #b4b4b4;
+      vertical-align: middle;
+    }
+    &>input.icon-checked:checked:before {
+      content: "\e613";
+      position: absolute;
+      top: -.08rem;
+      left: -.05rem;
+      color: #d11d1d;
+      font-size: 32px;
+    }
+  }
+  div.text1 {
+    display: flex;
+    align-items: center;
+    margin: .9rem 0 0 0;
+    .fs(24px);
+    .color-333;
+    &>span {
+      margin-left: 1.76rem;
+      text-align: right;
+      margin-right: .4rem;
+    }
+    &>input {
+      width: 2.7rem;
+      border: 1px solid @grey9;
+      text-indent: .05rem;
+      .fs(30px);
+      .color-333;
+      height: .54rem;
+      line-height: .54rem;
+    }
+    &>a.setting {
+      .fs(18px);
+      .color-red;
+      margin-left: .32rem;
+      text-decoration: underline;
+    }
+  }
+  div.text2 {
+    margin-right: .44rem;
+    margin-top: 1rem;
+    &>a {
+      width: 1.86rem;
+      height: .7rem;
+      line-height: .7rem;
+      .fs(28px);
+    }
+    &>a:first-child {
+      #btn>.red-btn;
+      margin-left: 2.5rem;
+    }
+    &>a:last-child {
+      border-radius: 10px;
+      .color-333;
+      background-color: #ebebeb;
+      text-align: center;
+      display: inline-block;
+      margin-left: .76rem;
+    }
+  }
+  p.text3 {
+    .fs(18px);
+    .color-333;
+    padding: .56rem 0 .56rem 0;
+    margin: 0 .24rem;
+    // border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  div.text4 {
+    .color-666;
+    .fs(24px);
+    margin-top: .45rem;
+    text-align: center;
+    &>input.icon-checked {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: .3rem;
+      height: .3rem;
+      position: relative;
+    }
+    &>input.icon-checked:after {
+      width: .2rem;
+      height: .2rem;
+      content: '';
+      display: inline-block;
+      border: 3px solid #b4b4b4;
+      vertical-align: middle;
+    }
+    &>input.icon-checked:checked:before {
+      content: "\e613";
+      position: absolute;
+      top: -.08rem;
+      left: -.05rem;
+      color: #d11d1d;
+      font-size: 32px;
+    }
+  }
+  p.text5 {
+    .fs(14px);
+    .color-red;
+    margin: .32rem auto;
+    text-align: center;
+  }
+}
+
+#editSaleTimeModal {
+  height: 5.6rem;
+  .part {
+    text-align: center;
+    margin-top: .56rem;
+    .fs(24px);
+    .color-333;
+    &>span {
+      // height: .34rem;
+      // line-height: .34rem;display: inline-block;
+    }
+    &>input {
+      display: inline-block;
+      .fs(24px);
+      .color-333; // height: .34rem;
+      // line-height: .34rem;
+    }
+  }
+  div.text1 {
+    margin-top: .68rem;
+  }
+  div.text2 {
+    margin-top: .64rem;
+  }
+}
+
+#moneyWaysModal {
+  width: 9.36rem;
+  border-radius: .05rem;
+  top: .8rem; // left: 1.5rem;
+  height: 8.78rem;
+  h1.head {
+    .fs(30px);
+    .color-333;
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid @red;
+    text-align: center;
+    margin: 0;
+  }
+  div.text1 {
+    display: flex;
+    align-items: center;
+    margin: .56rem 0 0 0;
+    .fs(24px);
+    .color-333;
+    &>span {
+      width: 2.3rem;
+      text-align: right;
+      margin-right: .4rem;
+    }
+    &>input {
+      width: 2.7rem;
+      border: 1px solid @grey9;
+      text-indent: .05rem;
+      .fs(30px);
+      .color-333;
+      height: .54rem;
+      line-height: .54rem;
+    }
+    &>i {
+      margin-left: .2rem;
+      .fs(16px);
+      .color-666;
+    }
+    &>a.setting {
+      .fs(18px);
+      .color-red;
+      margin-left: .32rem;
+      text-decoration: underline;
+    }
+    &>.upload-btn {
+      width: 2.7rem;
+      height: .54rem;
+      border: 1px solid #b2b2b2;
+      .fs(24px);
+      .color-333;
+      display: inline-block;
+      line-height: .54rem;
+      text-align: center;
+    }
+  }
+  div.text1:first-child {
+    margin-top: .96rem;
+  }
+  div.text2 {
+    margin-right: .44rem;
+    padding: .78rem 0 .66rem;
+    &>a {
+      width: 1.86rem;
+      height: .7rem;
+      line-height: .7rem;
+      .fs(28px);
+    }
+    &>a:first-child {
+      #btn>.red-btn;
+      margin-left: 2.14rem;
+    }
+    &>a:last-child {
+      border-radius: 10px;
+      .color-333;
+      background-color: #ebebeb;
+      text-align: center;
+      display: inline-block;
+      margin-left: .76rem;
+    }
+  }
+}
+
+
+//上传二维码modal
+#qrImgModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  background: transparent;
+  &>.qr-upload-img {
+    width: 5rem;
+  }
+}
+
+.delegate-mine-setting {
+  &>.title {
+    margin: .58rem .38rem 0;
+    padding: 0 .36rem .34rem;
+    border-bottom: 2px solid #d5d5d5;
+    &>span:first-child {
+      .fs(31px);
+      .color-333;
+    }
+    &>span:last-child {
+      .fs(24px);
+      float: right;
+      color: #008af3;
+    }
+  }
+  &>.subtitle {
+    text-align: center;
+    .fs(31px);
+    .color-666;
+    margin-top: 1.04rem;
+  }
+  border-radius: .05rem;
+  top: .8rem;
+  left: 1.5rem;
+  height: 8rem;
+  .part {
+    text-align: center;
+    margin-top: .56rem;
+    .fs(24px);
+    .color-333;
+
+    &>input {
+      display: inline-block;
+      .fs(24px);
+      .color-333;
+    }
+  }
+  div.text6 {
+    width: 5.08rem;
+    padding: .7rem 0 .55rem;
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 2px dashed #ddd;
+    &>span:first-child {
+      .brad(.1rem);
+      width: 3.64rem;
+      height: .66rem;
+      line-height: .66rem;
+      .fs(28px);
+      .color-red;
+      display: inline-block;
+      border: 1px solid @red;
+    }
+  }
+  p.text3 {
+    .fs(24px);
+    .color-666;
+    text-align: center;
+  }
+  div.text4 {
+    .color-666;
+    .fs(24px);
+    margin-top: .45rem;
+    text-align: center;
+    &>input.icon-checked {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: .3rem;
+      height: .3rem;
+      position: relative;
+    }
+    &>input.icon-checked:after {
+      width: .2rem;
+      height: .2rem;
+      content: '';
+      display: inline-block;
+      border: 3px solid #b4b4b4;
+      vertical-align: middle;
+    }
+    &>input.icon-checked:checked:before {
+      content: "\e613";
+      position: absolute;
+      top: -.08rem;
+      left: -.05rem;
+      color: #d11d1d;
+      font-size: 32px;
+    }
+  }
+  p.text5 {
+    .fs(14px);
+    .color-red;
+    margin: .32rem auto .58rem;
+    text-align: center;
+  }
+}
+
+.account-mine-set {
+  &>.title {
+    margin: .58rem .38rem 0;
+    padding: 0 .36rem .34rem;
+    border-bottom: 2px solid #d5d5d5;
+    &>span:first-child {
+      .fs(31px);
+      .color-333;
+    }
+    &>span:last-child {
+      .fs(24px);
+      float: right;
+      color: #008af3;
+    }
+  }
+  &>.oneline {
+    margin-top: .9rem;
+    margin: .9rem 1.72rem 0 1.06rem;
+  }
+  .left {
+    .color-666;
+    &>span:first-child {
+      .fs(35px);
+    }
+    &>span:last-child {
+      .fs(29px);
+    }
+  }
+  .right {
+    float: right;
+    .fs(16px);
+    color: #008af3;
+    &>.icon-bianji2 {
+      .fs(22px);
+    }
+  }
+  &>.operations {
+    margin-top: 1.22rem;
+    display: flex;
+    justify-content: space-around;
+    &>a {
+      width: 3.64rem;
+      height: .66rem;
+      line-height: .66rem;
+      .fs(28px);
+      #btn>.clients-btn;
+      &>span {
+        .fs(32px);
+      }
+    }
+  }
+}
+
+#editAccountNameModal {
+  width: 8.36rem;
+  border-radius: .05rem;
+  top: .8rem;
+
+  height: -webkit-fit-content;
+  h1.head {
+    .fs(30px);
+    .color-333;
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid @red;
+    text-align: center;
+    margin: 0;
+  }
+  form.form-style {
+    &>div.text1 {
+      display: flex;
+      align-items: center;
+      margin-top: .42rem;
+      &>span {
+        width: 3.22rem;
+        margin-right: .2rem;
+        text-align: right;
+        display: inline-block;
+        .fs(26px);
+        .color-666;
+      }
+      input {
+        width: 3rem;
+        border: 1px solid @grey9;
+        text-indent: .05rem;
+        .fs(30px);
+        .color-333;
+        height: .54rem;
+        line-height: .54rem;
+      }
+      div.error {
+        .color-red;
+        .fs(14px);
+        text-align: right;
+      }
+      &>a.setting {
+        .fs(18px);
+        .color-red;
+        margin-left: .32rem;
+        text-decoration: underline;
+      }
+      &>.verify {
+        width: 2rem;
+      }
+    }
+    &>div.text1:first-child {
+      margin-top: .7rem;
+    }
+
+    &>div.text4 {
+      display: flex;
+      margin-top: .66rem;
+      margin-bottom: .46rem;
+      &>input {
+        #btn>.red-btn;
+        margin-left: 1.96rem;
+        width: 1.86rem;
+        height: .7rem;
+        line-height: .7rem;
+        .fs(28px);
+      }
+      &>input.disable-btn {
+        background-color: @grey9;
+      }
+      &>a {
+        width: 1.86rem;
+        height: .7rem;
+        line-height: .7rem;
+        .fs(28px);
+
+        border-radius: 10px;
+        .color-333;
+        background-color: #ebebeb;
+        text-align: center;
+        display: inline-block;
+        margin-left: .76rem;
+      }
+    }
+    .text2 {
+      .color-666;
+      .fs(24px);
+      text-align: center;
+      margin-bottom: .66rem;
+    }
+  }
+}
+
+#editOperationPassword {
+  width: 8.27rem;
+  height: 7.74rem;
+  div.text1 {
+    margin-top: .5rem;
+    &>span {
+      width: 3.2rem;
+    }
+    &>input {
+      width: 3rem;
+    }
+    &>.verify {
+      width: 2rem;
+    }
+  }
+  div.text1:first-child {
+    margin-top: .66rem;
+  }
+  div.text2 {
+    &>a:first-child {
+      margin-left: 1.96rem;
+    }
+  }
+}
+
+#resetLoginPassword {
+  border-radius: .05rem;
+  top: .8rem;
+  width: 8.27rem;
+  height: 6.9rem;
+  h1.head {
+    .fs(30px);
+    .color-333;
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid @red;
+    text-align: center;
+    margin: 0;
+  }
+  div.text1 {
+    display: flex;
+    align-items: center;
+    margin: .5rem 0 0 0;
+    .fs(24px);
+    .color-333;
+    &>span {
+      width: 2.3rem;
+      text-align: right;
+      margin-right: .4rem;
+    }
+    &>input {
+      width: 3rem;
+      border: 1px solid @grey9;
+      text-indent: .05rem;
+      .fs(30px);
+      .color-333;
+      height: .54rem;
+      line-height: .54rem;
+    }
+    &>a.setting {
+      .fs(18px);
+      .color-red;
+      margin-left: .32rem;
+      text-decoration: underline;
+    }
+  }
+
+  div.text2 {
+    margin-right: .44rem;
+    padding: .78rem 0 .66rem;
+    &>a {
+      width: 1.86rem;
+      height: .7rem;
+      line-height: .7rem;
+      .fs(28px);
+    }
+    &>a:first-child {
+      #btn>.red-btn;
+      margin-left: 2.14rem;
+    }
+    &>a:last-child {
+      border-radius: 10px;
+      .color-333;
+      background-color: #ebebeb;
+      text-align: center;
+      display: inline-block;
+      margin-left: .76rem;
+    }
+  }
+  div.text3 {
+    .color-999;
+    .fs(18px);
+    margin: .24rem 0 0 2.9rem;
+  }
+}
+
+.shop-account {
+  &>.filter-time {
+    &>div.left-filter {
+      width: 8rem;
+      &>input {
+        width: 38%;
+        .fs(24px);
+      }
+    }
+  }
+  .account-balance{
+    .fs(28px);
+    margin-left: .5rem;
+  }
+}
+

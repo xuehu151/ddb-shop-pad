@@ -1,0 +1,325 @@
+@import "../common/css/common.less";
+
+
+.index-right.home .top-left {
+  width: 10.06rem;
+  background-color: #fff;
+  height: 3.82rem;
+  padding: .31rem .32rem;
+  .box-shadow;
+  .img-wrap {
+    width: 2.28rem;
+    height: 1.66rem;
+    border: 1px solid #d7d7d7;
+    text-align: center;
+  }
+
+  .info {
+    margin-left: .52rem;
+    width: 5.3rem;
+    height: 1.66rem;
+    .up {
+      padding-top: .44rem;
+      align-items: center;
+      display: flex;
+      .text2 {
+        font-size: 30px;
+        .color-333;
+        margin-right: .2rem;
+      }
+      .text3 {
+        font-size: 20px;
+        .color-999;
+        margin-left: .52rem;
+      }
+    }
+    .down {
+      padding-top: .4rem;
+      .color-red;
+      align-items: center;
+      font-size: 20px;
+      display: flex;
+      text-align: center;
+      &>span {
+        border-right: 1px solid #bcbcbc;
+        line-height: .2rem;
+      }
+      &>span:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  .dothings {
+    margin-top: .6rem;
+    align-items: center;
+    >div {
+      position: relative;
+      width: 2.5rem;
+      line-height: .76rem;
+      font-size: 32px;
+      border-radius: 8px;
+      background-color: #fff;
+      text-align: center;
+      margin-right: 1rem;
+      padding: 0;
+    }
+    >div:last-child {
+      margin-right: 0;
+    }
+    div.inactive {
+      .color-999;
+      border: 1px solid #999;
+    }
+    div.active {
+      .color-red;
+      border: 1px solid @red;
+    }
+    .dothings-num {
+      background-color: @red;
+      color: #fff;
+      position: absolute;
+      top: .18rem;
+      right: .4rem;
+    }
+  }
+}
+
+.index-right.home .top-right {
+  width: 4rem;
+  background-color: #fff;
+  height: 3.82rem;
+  .box-shadow;
+  text-align: center;
+  h3 {
+    width: 50%;
+    border-bottom: 3px solid @red;
+    height: .6rem;
+    line-height: .56rem;
+    color: @red;
+    font-size: 22px;
+  }
+  div.qrcode {
+    width: 2.16rem;
+    height: 2.16rem;
+    margin: .3rem auto 0;
+  }
+  p.qrcode-text {
+    font-size: 18px;
+    line-height: .26rem;
+    color: @grey6;
+    margin-top: .08rem;
+  }
+}
+
+
+
+#qrModal,#qrModalDowload {
+  position: absolute;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  width: 5.2rem;
+  height: 6.2rem;
+  text-align: center;
+  background: transparent;
+  &>.qr-wrap {
+    width: 5.2rem;
+    height: 5.2rem;
+    border: 3px solid #fff;
+    .big-qrcode {
+      width: 5rem;
+      height: 5.1rem;
+      margin: .08rem auto;
+    }
+  }
+  &>.qr-text {
+    .color-f;
+    .fs(30px);
+    margin-top: .65rem;
+  }
+}
+
+#qrModal {
+  left: 75%;
+}
+#qrModalDowload {
+  left: 25%;
+}
+
+
+.index-right.home .middle-left {
+  width: 8.22rem;
+  height: 2.25rem;
+  background-color: #fff;
+  padding-right: .26rem;
+  text-align: center;
+  .hide-text {
+    color: @grey9;
+    font-size: 20px;
+    text-decoration: underline;
+    line-height: .62rem;
+    height: .62rem;
+    float: right;
+  }
+  div.deal-amount {
+    p.num {
+      color: @red;
+      font-size: 50px;
+      margin-bottom: .36rem;
+      height: .38rem;
+    }
+    p.num-text {
+      .color-333;
+      font-size: 30px;
+    }
+    .line {
+      width: 1px;
+      height: .78rem;
+      background-color: @grey9;
+    }
+  }
+}
+
+.index-right.home .middle-right {
+  width: 5.86rem;
+  height: 2.25rem;
+  background-color: #fff;
+  text-align: center;
+  p.num {
+    color: @red;
+    font-size: 50px;
+    margin-bottom: .36rem;
+    height: .38rem;
+    margin-top: .7rem;
+  }
+  p.num-text {
+    .color-333;
+    font-size: 30px;
+  }
+}
+
+.index-right.home .bottom {
+  width: 100%;
+  height: 2.19rem;
+  background-color: #fff;
+  margin-top: .22rem;
+
+  &>.title {
+    height: .9rem;
+    padding: .25rem;
+    &>span {
+      height: .4rem;
+      line-height: .4rem;
+      display: inline-block;
+    }
+    &>span:first-child {
+      border-left: 7px solid @red;
+      padding-left: .2rem;
+      .fs(24px);
+      .color-333;
+    }
+    &>span:last-child {
+      .fs(18px);
+      .color-999;
+      margin-right: .2rem;
+    }
+  }
+  &>.content {
+    padding: 0 .55rem;
+    border-top: 2px solid #d3d3d3;
+    &>span {
+      width: 49%;
+      margin-top: .28rem;
+      display: inline-block;
+    }
+
+    i.triangle {
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-left: 12px solid #7e7e7e;
+      border-bottom: 9px solid transparent;
+      display: inline-block;
+    }
+    i.triangle~span {
+      .fs(24px);
+      .color-333;
+      margin-left: .26rem;
+    }
+  }
+}
+
+.home-public {
+  padding: .32rem;
+  .bg(#e4e9e2);
+  height: 100%;
+  &>.content {
+    height: 100%;
+    .bg(#fff);
+    box-shadow: 2.06px 3.429px 2.94px 0.06px rgba(0, 0, 0, 0.1), -2.828px -2.828px 2.94px 0.06px rgba(0, 0, 0, 0.06);
+    &>.text {
+      .fs(26px);
+      .color-333;
+      padding: .42rem .88rem;
+      line-height: 1.5;
+    }
+  }
+  .title {
+    height: .9rem;
+    padding: .25rem;
+    border-bottom: 2px solid #d3d3d3;
+    &>span {
+      height: .4rem;
+      line-height: .4rem;
+      display: inline-block;
+      border-left: 7px solid @red;
+      padding-left: .2rem;
+      .fs(24px);
+      .color-333;
+    }
+  }
+  .more {
+    padding-bottom: .3rem;
+    margin: 0 .82rem;
+    &>div {
+      height: .76rem;
+      line-height: .76rem;
+      border-bottom: 2px dashed #dedfde;
+    }
+
+    i.triangle {
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-left: 12px solid #7e7e7e;
+      border-bottom: 9px solid transparent;
+      display: inline-block;
+    }
+    i.triangle~span {
+      .fs(24px);
+      .color-333;
+      margin-left: .26rem;
+    }
+  }
+  .detail-title {
+    height: .9rem;
+    padding: .25rem;
+    border-bottom: 2px solid #d3d3d3;
+    text-align: center;
+    &>span {
+      height: .4rem;
+      line-height: .4rem;
+      display: inline-block;
+      .fs(28px);
+      .color-333;
+      font-weight: bold;
+    }
+  }
+  .public-date {
+    .fs(24px);
+    .color-333;
+    text-align: center;
+    padding: .1rem 0;
+  }
+}

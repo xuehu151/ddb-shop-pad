@@ -1,0 +1,246 @@
+@import "../common/css/common.less";
+.border-table {
+  border: 1px solid #d2d6d0;
+}
+
+.borderTop-table {
+  border-top: 1px solid #d2d6d0;
+}
+
+@border: 1px solid #d2d6d0;
+div.charts.index-right {}
+
+.chart-tabs {
+  display: flex;
+  justify-content: center;
+  .bg(#e4e9e2);
+  .fs(0px);
+  padding-top: .62rem;
+  padding-bottom: .34rem;
+  width: 15.2rem;
+  &>.tab {
+    .fs(32px);
+    width: 2.26rem;
+    #btn>.clients-btn;
+    height: .66rem;
+    line-height: .66rem;
+    .brad(0);
+  }
+  &>.red-tab {
+    #btn>.red-btn;
+    .brad(0);
+  }
+}
+
+.filter-time-charts {
+  display: flex;
+  align-items: center;
+  width: 15.2rem;
+  height: .92rem;
+  line-height: .92rem;
+  background-color: #dce0e3;
+  border: 1px solid #c3c6c9;
+  font-size: 24px;
+  &>.left-filter {
+    width: 6.4rem;
+    border-right: 1px solid #c3c6c9;
+    &>input {
+      padding-top: 0;
+      width: 40%;
+      line-height: normal;
+      text-indent: .1rem;
+      vertical-align: -.06rem;
+      .fs(18px);
+      display: inline-block;
+      .bg(transparent)
+    }
+  }
+  &>.right-btns {
+    &>a {
+      #btn>.black-btn;
+      .fs(24px);
+      width: 2.24rem;
+      height: .52rem;
+      line-height: .52rem;
+      margin-left: .5rem;
+    }
+    &>a.active {
+      background-color: #fff;
+      .color-red;
+      border: none;
+    }
+  }
+  &>.client-total{
+    &>.text{
+      margin-left: .46rem;
+    }
+    .red{
+      .color-red;
+    }
+  }
+}
+
+div.table-charts-time,
+div.table-charts-history-prize,
+div.table-charts-clients {
+  width: 100%;
+  text-align: center;
+  background-color: #e4e9e2;
+  .tr {
+    display: flex;
+    &>span {
+      flex: 1;
+      border: 1px solid #d2d6d0;
+      border-top: none;
+      font-size: 23px;
+      .color-333;
+      height: .92rem;
+      line-height: .92rem;
+
+      display: inline-block;
+    }
+    &>span:last-child {
+      border-right-width: 0;
+    }
+    &>.blue{
+      color:#008af3
+    }
+  }
+
+  .tr:nth-child(2n) {
+    background-color: #fff;
+  }
+  .tr:nth-child(2n+1) {
+    background-color: #e4e9e2;
+  }
+  .tr.head {
+    background-color: #eef1f7;
+    &>span{
+      .fs(27px)
+    }
+  }
+  .mark {
+    .fs(23px);
+    .color-666;
+    margin: .28rem 0 .28rem .2rem;
+    text-align: left;
+  }
+  /*th {
+
+    i {
+      left: 4%;
+      position: relative;
+      top: 25%;
+    }
+    i.triangle-up {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 13px solid @grey9;
+    }
+
+    i.triangle-down {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 13px solid @grey9;
+    }
+     &>.status-ul {
+      position: absolute;
+      left: .2rem;
+      top: .92rem;
+      width: 2rem;
+      padding: .1rem .2rem;
+      background-color: #fff;
+      .box-shadow;
+      .brad(.1rem);
+      &>li {
+        height: .5rem;
+        line-height: .5rem;
+        border-bottom: 1px solid #666;
+        .color-666
+      }
+      &>li:last-child {
+        border-bottom: none;
+      }
+    }
+  }*/
+}
+
+div.table-charts-history-remain {
+  width: 100%;
+  text-align: center;
+  background-color: #e4e9e2;
+  div.head {
+    .fs(20px);
+    .color-333;
+    display: flex;
+    .col1 {
+      width: .78rem;
+      line-height: .92rem;
+    }
+    &>div {
+      // height: .92rem;
+      .border-table;
+      border-left-width: 0;
+      &>p {
+        height: .46rem;
+        line-height: .46rem;
+        margin:0;
+      }
+      &>div {
+        height: .46rem;
+        line-height: .46rem;
+        display: flex;
+        .borderTop-table;
+        &>span {
+          border-right: @border;
+          height: .46rem;
+          width: 1.03rem;
+        }
+        &>span:last-child {
+          border-right-width: 0;
+        }
+      }
+    }
+    &>div:last-child {
+      border-right-width: 0;
+    }
+  }
+  .tr {
+    .fs(0px);
+    &>span {
+      width: 1.03rem;
+      border: 1px solid #d2d6d0;
+      border-top: none;
+      font-size: 19px;
+      .color-666;
+      height: .92rem;
+      line-height: .92rem;
+      display: inline-block;
+    }
+    &>span.first {
+      width: .78rem;
+    }
+    &>span:last-child {
+      border-right-width: 0;
+    }
+  }
+  .tr:nth-child(2n) {
+    background-color: #fff;
+  }
+  .tr:nth-child(2n+1) {
+    background-color: #e4e9e2;
+  }
+  .tr.head {
+    background-color: #eef1f7;
+  }
+  .mark {
+    .fs(23px);
+    .color-666;
+    margin: .28rem 0 .28rem .2rem;
+    text-align: left;
+  }
+}

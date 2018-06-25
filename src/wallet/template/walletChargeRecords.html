@@ -1,0 +1,60 @@
+<ion-view view-title="充值">
+  <div class="charge-right" ng-click="backToCharge()">
+    <h3>{{oView.h3}}</h3>
+    <!-- <div class="clearfix" style="background-color: #dce0e3;height: .94rem;">
+      <div class="search-date">
+        <input type="date" name="" ng-model="search.startDate" value="2017/09/01" />
+      </div>
+      <div class="search-content">
+        <i class="icon-search" style="font-size: 30px;margin-left:.2rem; "></i>
+        <input type="text" name="" ng-model="searchContent" placeholder="输入彩民名称、订单号进行查询" />
+      </div>
+    </div> -->
+    <div class="filter-time">
+      <div class="top-filter">
+        <input type="datetime-local" ng-model="search.startDate" name="beginTime" required ng-change="whetherInMonth()" />
+        <span style="margin:0 .05rem;">—</span>
+        <input type="datetime-local" ng-model="search.endDate" name="endTime" required  />
+        <span style="margin: 0 .16rem;">{{oView.th2}}</span>
+        <span class="status-swap" ng-click="whetherShowStatusChoose = !whetherShowStatusChoose">{{choosedStatus}}
+          <i class="triangle-down"></i>
+        </span>
+        <ul class="status-records" ng-show="whetherShowStatusChoose">
+          <li ng-repeat="eachStatus in oView.allStatus " ng-click="filterStatus($index)">{{eachStatus}}</li>
+        </ul>
+
+      </div>
+      <div class="down-filter">
+        手机号
+        <input type="tel" name="orderNumber" style="width: 2.7rem;" ng-model="search.phone" /> 用户昵称
+        <input type="text" name="orderNumber" style="width: 1.5rem;" ng-model="search.customerName" />
+        <a ng-click="searchallChargeSuc()">查询</a>
+      </div>
+    </div>
+    <div class="charge-records-table">
+      <div class="table-head">
+        <span style="width: 1.24rem;">彩民名称</span>
+        <span style="width: 1.24rem;">{{oView.th1}}</span>
+        <span style="width: 1.24rem;">{{oView.th2}}</span>
+        <span style="width: 2.56rem;">{{oView.th3}}</span>
+        <span style="width: 3.12rem;">流水号</span>
+      </div>
+      <div style="text-align: center;" ng-if="allChargesSucOrder.length === 0">
+        <img src="common/img/blank.png" >
+      </div>
+      <ion-scroll direction="y" style=" height: 6.52rem">
+        <div class="table-body" ng-repeat="eachCharge in allChargesSucOrder">
+          <span style="width: 1.24rem;" ng-cloak>{{eachCharge.customerName}}</span>
+          <span style="width: 1.24rem;" ng-cloak style="color: #d21e1e;">{{eachCharge.money/100}}</span>
+          <span style="width: 1.24rem;" ng-cloak>{{eachCharge.statusChinese}}</span>
+          <span style="width: 2.56rem;" ng-cloak>{{eachCharge.updateDate}}</span>
+          <span style="width: 3.12rem;" ng-cloak>{{eachCharge.ticketID}}</span>
+        </div>
+        <div style="text-align: center;" ng-if="allChargesSucOrder.length !== 0 && showLastPic === true">
+          <img src="common/img/nomore.png"  class="last-pic">
+        </div>
+        <ion-infinite-scroll ng-if="moreChargeSuc.moredata" on-infinite="moreChargeSuc.loadMore()" distance="1%"></ion-infinite-scroll>
+      </ion-scroll>
+    </div>
+  </div>
+</ion-view>

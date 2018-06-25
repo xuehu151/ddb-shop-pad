@@ -1,0 +1,49 @@
+<ion-view view-title="彩店账户">
+  <div class="index-right home">
+    <div class="clients shop-account">
+      <div class="filter-time">
+        <div class="left-filter amount-detail">
+          <input type="datetime-local" ng-model="search.startDate" name="beginTime" required ng-change="whetherInMonth()" /> —
+          <input type="datetime-local" ng-model="search.endDate" name="endTime" required />
+          <a class="search-btn" ng-click="searchDetail()">查询</a>
+        </div>
+        <div class="account-balance">
+          <b class="left">彩店余额:{{shopSetsView.money/100 | number:2}}元</b>
+        </div>
+      </div>
+      <div has-bouncing="true" delegate-handle="mainScroll">
+        <div>
+          <div class="clients-table">
+            <div class="table-head">
+              <span style="width: 3.8rem">流水ID</span>
+              <span style="width: 3.8rem">提交时间</span>
+              <span style="width: 3.8rem">金额</span>
+              <span style="position: relative;width: 3.8rem;z-index: 3;" ng-click="whetherShowStatus=!whetherShowStatus">
+                  <b>状态</b>
+                  <ul class="status-ul" ng-show="whetherShowStatus">
+                    <li ng-repeat="eachStatus in allStatus " ng-click="filterStatus(eachStatus)">{{eachStatus}}</li>
+                  </ul>
+                  <i class="triangle-down"></i>
+                </span>
+            </div>
+            <div style="text-align: center;" ng-if="allShopAccountData.length === 0">
+              <img src="common/img/blank.png">
+            </div>
+            <ion-scroll direction="y" style="height: 7.13rem">
+              <div class="table-body clearfix" ng-repeat="each in allShopAccountData">
+                <span style="width: 3.8rem" ng-cloak>{{each.id}}</span>
+                <span style="width: 3.8rem" ng-cloak>{{each.createDate}}</span>
+                <span style="width: 3.8rem;" ng-cloak>{{each.money/100 |number:2}}</span>
+                <span style="width: 3.8rem" ng-cloak>{{each.statusChina}}</span>
+              </div>
+              <div style="text-align: center;" ng-if="allShopAccountData.length !== 0 && showLastPic === true">
+                <img src="common/img/nomore.png" class="last-pic">
+              </div>
+              <ion-infinite-scroll ng-if="moreShopAccount.moredata" on-infinite="moreShopAccount.loadMore()" distance="1%"></ion-infinite-scroll>
+            </ion-scroll>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>

@@ -1,0 +1,27 @@
+<div class="fr inst-message">
+  <span class="mess-alert" ng-click="showInstMessages()">
+              <i class="icon-Bell alert-img" style="color: #fff;"></i>
+            </span>
+  <span class="badge mess-num" ng-cloak>{{receiveMessages.length}}</span>
+  <div class="inst-list-wrap" ng-show="isShowInstMessage">
+    <!-- <div class="inst-list-wrap" > -->
+    <i class="triangle-top"></i>
+    <div class="message-scroll-wrap">
+      <ion-scroll class="inst-list" direction="y">
+        <div>
+          <div  ng-click="toDetailFromInst($index)" class="inst-one clearfix" ng-repeat="oneMes in receiveMessages track by $index">
+            <span class="inst-title" ng-cloak>{{oneMes.title}}:</span>
+            <span class="inst-content" ng-cloak>{{oneMes.content}}。</span><br />
+            <span class="inst-content" ng-cloak>{{oneMes.time}}</span>
+            <span class="inst-ignore" ng-click="ignoreThis($index,$event)">忽略</span>
+          </div>
+        </div>
+      </ion-scroll>
+      <div class="clear-btn">
+        <button ng-click="clearAllMessage()">一键清除</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>

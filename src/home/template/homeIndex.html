@@ -1,0 +1,119 @@
+<ion-view view-title="首页">
+  <main class="content">
+    <div class="clearfix">
+      <div class="top-left fl">
+        <div class="row">
+          <div class="img-wrap ">
+            <img src="{{shopImgSrc}}" style="margin-top: 4px;width: 2.2rem;height: 1.57rem;" alt="shop" ng-if="shopImgSrc" />
+            <img src="./common/img/noShopImg.svg" style="margin-top: 4px;width: 2.2rem;height: 1.57rem;" alt="shop" ng-if="!shopImgSrc" ui-sref="modules.mine.shopSets" />
+            <span> </span>
+          </div>
+          <div class="info">
+            <div class="up">
+              <span class="text2" ng-cloak>{{thisShopInfo.RequestShopInformation.name}}</span>
+              <img src="./common/img/shop-v.png" alt="V" />
+              <span class="text3">{{thisShopInfo.RequestShopInformation.number}}</span>
+            </div>
+            <div class="down">
+              <span ng-click="openEditSaleTimeModal()" style="width: 2.44rem;text-align: left;">
+                  营业时间:
+                    <span ng-cloak>
+                      {{thisShopInfo.RequestShopInformation.startTime}}
+                    </span> -
+              <span ng-cloak>
+                      {{thisShopInfo.RequestShopInformation.endTime}}
+                    </span>
+              </span>
+              <span style="width: 1.4rem;" ui-sref="modules.mine.shopSets">
+                    店铺资料
+                  </span >
+                  <span ng-click="goClientAssist()" style="width: 1.4rem;" ng-if="userInfo.type === 1">
+                    权限管理
+                  </span>
+            </div>
+          </div>
+        </div>
+        <div class="dothings row">
+          <div class="col" nav-direction="swap" ng-class="thisShopInfo.RequestRechargeTotal === 0?'inactive':'active'" ng-click="gotoWalletOperation('charge')" ng-disabled="thisShopInfo.RequestRechargeTotal === 0">
+            充值
+            <span class="badge dothings-num" ng-cloak>{{thisShopInfo.RequestRechargeTotal}}</span>
+          </div>
+          <div class="col" ng-class="thisShopInfo.RequestWithdrawTotal === 0?'inactive':'active'" ng-click="gotoWalletOperation('withdraw')" ng-disabled="thisShopInfo.RequestWithdrawTotal === 0">
+            提现
+            <span class="badge dothings-num" ng-cloak>{{thisShopInfo.RequestWithdrawTotal}}</span>
+          </div>
+          <div class="col" ng-class="thisShopInfo.RequestSendPrizeTotal === 0?'inactive':'active'" ng-click="toSendPrize()" ng-disabled="thisShopInfo.RequestSendPrizeTotal === 0">
+            派奖
+            <span class="badge dothings-num" ng-cloak>{{thisShopInfo.RequestSendPrizeTotal}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="top-right fr" ng-click="showBigQr()">
+        <h3>
+              彩店二维码
+            </h3>
+        <div>
+
+          <div class="qrcode" id="qrcode_1">
+          </div>
+          <p class="qrcode-text">
+            扫一扫
+            <br> 轻松分享彩店
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix" style="margin-top: .22rem;">
+      <div class="middle-left fl">
+        <p class="hide-text" ng-click="hideStatus = !hideStatus">隐藏</p>
+        <div class="row deal-amount">
+          <div class="col ">
+            <p class="num" ng-if="hideStatus" ng-cloak>{{thisShopInfo.YesterdayDealCountNumber.data}}</p>
+            <p class="num" ng-if="!hideStatus" ng-cloak>***</p>
+            <p class="num-text">昨日总成交人数</p>
+          </div>
+          <div class="line"> </div>
+          <div class="col">
+            <p class="num" ng-if="hideStatus" ng-cloak>{{thisShopInfo.YesterdayDealCountAmountMoney.data/100 | number:2}}</p>
+            <p class="num" ng-if="!hideStatus" ng-cloak>***</p>
+            <p class="num-text">昨日总成交金额</p>
+          </div>
+        </div>
+      </div>
+      <div class="middle-right fr">
+        <p class="num" ng-cloak>{{thisShopInfo.waitGiveTicket}}</p>
+        <p class="num-text">待接单</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="title">
+        <span class="fl">系统公告</span>
+        <span class="fr" ui-sref="modules.home.public">查看更多>></span>
+      </div>
+      <div class="content">
+        <span ng-repeat="note in publicNotes">
+          <i class="triangle"></i>
+          <span ng-cloak>{{note.title}}</span>
+        </span>
+      </div>
+    </div>
+  </main>
+
+
+  <script type="text/ng-template" id="biggerQR.html">
+    <ion-modal-view id="qrModalDowload">
+      <div class="qr-wrap">
+        <div class="big-qrcode" id="qrcode_3">
+        </div>
+      </div>
+      <p class="qr-text">安卓彩民端二维码</p>
+    </ion-modal-view>
+    <ion-modal-view id="qrModal">
+      <div class="qr-wrap">
+        <div class="big-qrcode" id="qrcode_2">
+        </div>
+      </div>
+      <p class="qr-text">彩民注册二维码</p>
+    </ion-modal-view>
+  </script>
+</ion-view>

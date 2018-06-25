@@ -1,0 +1,31 @@
+<ion-view view-title="时段统计">
+  <div class="table-charts-time">
+    <div class="tr head">
+      <span>类型</span>
+      <span>人数</span>
+      <span>方案数</span>
+      <span>金额</span>
+    </div>
+    <ion-scroll direction="y" style="height: 5.5rem;">
+      <div class="tr">
+        <span>提交</span>
+        <span>{{timeDatas.commitPeopleNumber}}</span>
+        <span class="blue">{{timeDatas.commitOrderCount}}</span>
+        <span>{{timeDatas.commitOrderSumMoney/100}}</span>
+      </div>
+      <div class="tr">
+        <span>出票</span>
+        <span>{{timeDatas.outTicketPeopleNumber}}</span>
+        <span class="blue">{{timeDatas.outTicketOrderCount}}</span>
+        <span>{{timeDatas.outTicketSumMoney/100}}</span>
+      </div>
+      <div class="tr">
+        <span>撤单</span>
+        <span>{{timeDatas.killOrderPeopleNumber}}</span>
+        <span class="blue">{{timeDatas.killOrderOrderCount}}</span>
+        <span>{{timeDatas.killOrderSumMoney/100}}</span>
+      </div>
+      <p class="mark">注：销量依据结账操作的时间统计，未结账方案不计入统计。</p>
+    </ion-scroll>
+  </div>
+</ion-view>
